@@ -1,4 +1,3 @@
-
 export interface Todo {
   id: number;
   todo: string;
@@ -39,4 +38,3 @@ const [state, dispatch] = useReducer(TodoReducer, []);
   )
 };
 */
-
