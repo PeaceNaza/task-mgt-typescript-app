@@ -21,7 +21,7 @@ const TodoList: React.FC<Props> = ({
       <Droppable droppableId="TodosList">
         {(provided, snapshot) => (
           <div
-            className={`${snapshot.isDraggingOver ? "bg-[#afe1e4]" : ""} md:ml-10 w-[47.5%] rounded-md flex md:w-[45%] xs:w-[95%] xs:mb-3 flex-col p-4 bg-[#32C3CD]`}
+            className={`${snapshot.isDraggingOver ? "bg-[#00DDEC]" : ""} md:ml-10 w-[47.5%] rounded-md flex md:w-[45%] xs:w-[95%] xs:mb-3 flex-col p-4 bg-[#32C3CD]`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
