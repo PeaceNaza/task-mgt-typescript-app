@@ -15,7 +15,7 @@ const InputFeild: React.FC<Props> = ({ todo, setTodo, handleAdd }: Props) => {
         handleAdd(e);
         inputRef.current?.blur();
       }}
-      className="flex w-[90%] relative items-center"
+      className="flex xs:w-[95%] relative items-center"
     >
       <input
         type="input"

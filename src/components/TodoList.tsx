@@ -17,7 +17,7 @@ const TodoList: React.FC<Props> = ({
   setCompletedTodos,
 }: Props) => {
   return (
-    <div className=" flex xs:w-[95%] mt-3 justify-between items-start md:flex-row xs:flex-col">
+    <div className="flex xs:w-[95%] mt-3 justify-between items-start md:flex-row xs:flex-col">
       <Droppable droppableId="TodosList">
         {(provided, snapshot) => (
           <div
