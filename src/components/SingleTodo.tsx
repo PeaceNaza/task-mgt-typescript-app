@@ -42,7 +42,7 @@ const SingleTodo: React.FC<Props> = ({ index, todo, todos, setTodos }: Props) =>
   return (
     <Draggable draggableId={todo.id.toString()} index={index}>
       {(provided, snapshot) => (
-        <form
+        <form 
           className={` ${snapshot.isDragging ? "shadow-md" : ""} image flex md:w-[29.5%] rounded-md p-5 mt-4 xs:w-full`}
           onSubmit={(e) => handleEdit(e, todo.id)}
           ref={provided.innerRef}
@@ -50,7 +50,7 @@ const SingleTodo: React.FC<Props> = ({ index, todo, todos, setTodos }: Props) =>
           {...provided.dragHandleProps}
         >
           {edit ? (
-            <input
+            <input 
               ref={inputRef}
               placeholder="Edit todo"
               type="text"

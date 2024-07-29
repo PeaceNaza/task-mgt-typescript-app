@@ -21,7 +21,7 @@ const TodoList: React.FC<Props> = ({
       <Droppable droppableId="TodosList">
         {(provided, snapshot) => (
           <div
-            className={`${snapshot.isDraggingOver ? "bg-[#00DDEC]" : ""} w-[47.5%] rounded-md flex md:w-[45%] xs:w-[95%] xs:mb-3 flex-col p-4 bg-[#32C3CD]`}
+            className={`${snapshot.isDraggingOver ? "bg-[#afe1e4]" : ""} md:ml-10 w-[47.5%] rounded-md flex md:w-[45%] xs:w-[95%] xs:mb-3 flex-col p-4 bg-[#32C3CD]`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
@@ -43,11 +43,11 @@ const TodoList: React.FC<Props> = ({
       <Droppable droppableId="TodosRemove">
         {(provided, snapshot) => (
           <div
-            className={`${snapshot.isDraggingOver ? "bg-[#FF2600]" : ""} todos remove flex md:w-[47.5%] flex-col p-4 bg-[#EB6750] xs:w-[95%] xs:mb-3`}
+            className={`${snapshot.isDraggingOver ? "bg-[#FF2600]" : ""} mr-10 w-[47.5%] flex rounded-md  md:w-[45%] flex-col p-4 bg-[#EB6750] xs:w-[95%] xs:mb-3`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            <span className="todos-heading text-[30px] text-white">Completed Tasks</span>
+            <span className="text-[30px] text-white">Completed Tasks</span>
             {completedTodos.map((todo, index) => (
               <SingleTodo
                 index={index}
