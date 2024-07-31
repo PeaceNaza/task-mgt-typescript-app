@@ -34,17 +34,7 @@ const App: React.FC = () => {
     }
   };
 
-  const toggleTodo = (id: number) => {
-    const newTodos = todos.map((todo) => 
-      todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-    );
-    setTodos(newTodos);
-    localStorage.setItem("todos", JSON.stringify(newTodos));
 
-    const newCompletedTodos = (id: any) => completedTodos.filter((todo) => todo.id !== id);
-    setCompletedTodos(newCompletedTodos);
-    localStorage.setItem("completedTodos", JSON.stringify(newCompletedTodos)); 
-  };
 
   const onDragEnd = (result: DropResult) => {
     const { destination, source } = result;
@@ -78,9 +68,13 @@ const App: React.FC = () => {
     } else {
       complete.splice(destination.index, 0, add);
     }
+    localStorage.setItem("todos", JSON.stringify(active));
+    localStorage.setItem("completedTodos", JSON.stringify(complete));
+    
 
     setCompletedTodos(complete);
     setTodos(active);
+
   };
 
   return (
