@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import InputFeild from "./components/InputFeild";
 import { useState } from "react";
@@ -18,6 +18,11 @@ const App: React.FC = () => {
     return savedCompletedTodos ? JSON.parse(savedCompletedTodos) : [];
   });
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("completedTodos", JSON.stringify(completedTodos));
+  }, [todos, completedTodos]);
+
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     if (todo) {
@@ -27,6 +32,18 @@ const App: React.FC = () => {
       setTodo("");
       localStorage.setItem("todos", JSON.stringify(newTodos));
     }
+  };
+
+  const toggleTodo = (id: number) => {
+    const newTodos = todos.map((todo) => 
+      todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+    );
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+
+    const newCompletedTodos = (id: any) => completedTodos.filter((todo) => todo.id !== id);
+    setCompletedTodos(newCompletedTodos);
+    localStorage.setItem("completedTodos", JSON.stringify(newCompletedTodos)); 
   };
 
   const onDragEnd = (result: DropResult) => {
