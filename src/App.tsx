@@ -71,7 +71,6 @@ const App: React.FC = () => {
     localStorage.setItem("todos", JSON.stringify(active));
     localStorage.setItem("completedTodos", JSON.stringify(complete));
     
-
     setCompletedTodos(complete);
     setTodos(active);
 
